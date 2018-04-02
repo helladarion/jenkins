@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Puppet') {
             steps {
-                sh '%WORKSPACE%/jenkins/scripts/check_puppet.sh'
+                sh '$WORKSPACE/jenkins/scripts/check_puppet.sh'
             }
         }
     }

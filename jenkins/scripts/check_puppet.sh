@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 echo "Starting puppet Run"
 
@@ -37,6 +37,6 @@ memory
 cpu
 number of cameras online
 /var/log/messages (check for respawn)
-cehck AMS
+check AMS json on log
 
 [
