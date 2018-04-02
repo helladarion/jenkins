@@ -1,15 +1,15 @@
 #!groovy
 pipeline {
   agent {
-    label 'nucapollo'
+    node {
+      label 'nucapollo'
+      checkout scm
+    }
   }
   stages {
     stage('puppet') {
       steps {
-        node('nucapollo'){
-          checkout scm
-          sh './jenkins/scripts/check_puppet.sh'
-        }
+        sh './jenkins/scripts/check_puppet.sh'
       }
     }
   }
