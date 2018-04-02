@@ -10,6 +10,7 @@ pipeline {
         }
         stage('Puppet') {
             steps {
+                checkout scm
                 sh '$WORKSPACE/jenkins/scripts/check_puppet.sh'
             }
         }
