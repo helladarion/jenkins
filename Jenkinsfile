@@ -6,11 +6,11 @@ pipeline {
         label 'nucapollo'
       }
       steps {
-        checkout scm
+        // checkout scm
         // sh '$WORKSPACE/jenkins/scripts/check_puppet.sh'
         echo 'Checking puppet Status'
         sh './jenkins/scripts/check_puppet.sh'
-        sh 'ls /Jenkins/*/*/*/*'
+        // sh 'ls /Jenkins/*/*/*/*'
       }
     }
   }
