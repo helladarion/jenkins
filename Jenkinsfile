@@ -1,6 +1,7 @@
 pipeline {
     agent {
       label 'nucapollo'
+      checkout scm
     }
     stages {
         stage('No-op') {
@@ -10,8 +11,7 @@ pipeline {
         }
         stage('Puppet') {
             steps {
-                checkout scm
-                sh '$WORKSPACE/jenkins/scripts/check_puppet.sh'
+                sh './jenkins/scripts/check_puppet.sh'
             }
         }
     }
