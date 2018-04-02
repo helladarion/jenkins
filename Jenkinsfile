@@ -1,8 +1,7 @@
 pipeline {
     agent {
-      label 'nuc6'
+      label 'nucapollo'
     }
-    
     stages {
         stage('No-op') {
             steps {
