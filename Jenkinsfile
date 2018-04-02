@@ -1,5 +1,6 @@
 pipeline {
-    agent nuc6
+    agent any
+    node('nuc6')
     stages {
         stage('No-op') {
             steps {
