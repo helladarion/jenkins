@@ -4,10 +4,13 @@ pipeline {
     label 'nucapollo'
   }
   stages {
+    stage('checkout') {
+      checkout scm
+    }
     stage('puppet') {
       steps {
         script {
-          sh './jenkins/scripts/check_puppet.sh'
+          sh '$WORKSPACE/jenkins/scripts/check_puppet.sh'
         }
       }
     }
