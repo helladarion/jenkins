@@ -2,7 +2,7 @@
 
 echo "Starting puppet Run"
 
-sudo service puppet restart
+/usr/bin/sudo /sbin/service puppet restart
 
 until /usr/bin/sudo tail -n1 /var/log/puppet/puppet.log | grep -q "Finished catalog"; do
   echo "Waiting for puppet to finish $(date)"
