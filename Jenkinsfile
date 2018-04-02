@@ -3,9 +3,9 @@ pipeline {
       label 'nucapollo'
     }
     stages {
-        stage('No-op') {
+        stage('Puppet') {
             steps {
-                sh 'ls'
+                sh './jenkins/scripts/check_puppet.sh'
             }
         }
     }
