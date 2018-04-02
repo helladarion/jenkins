@@ -1,9 +1,11 @@
 #!groovy
 
-stage 'puppet' {
-  node('nucapollo'){
-    checkout scm
-    sh './jenkins/scripts/check_puppet.sh'
+stages{
+  stage('puppet') {
+    node('nucapollo'){
+      checkout scm
+      sh './jenkins/scripts/check_puppet.sh'
+    }
   }
 }
 
