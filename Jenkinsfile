@@ -1,6 +1,6 @@
 #!groovy
 pipeline {
-  agent nano
+  agent none
   stages {
     stage('puppet') {
       agent {
