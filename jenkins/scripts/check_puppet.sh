@@ -4,23 +4,23 @@ echo "Starting puppet Run"
 
 sudo service puppet restart
 
-until sudo tail -n1 /var/log/puppet/puppet.log | grep -q "Finished catalog"; do
+until /usr/bin/sudo tail -n1 /var/log/puppet/puppet.log | grep -q "Finished catalog"; do
   echo "Waiting for puppet to finish $(date)"
   sleep 100
 done
 
 
 puppetStatus="good"
-if [ -z "`sudo /sbin/service puppet status | grep -i "running"`" ]	
+if [ -z "`/usr/bin/sudo /sbin/service puppet status | grep -i "running"`" ]	
 then
 	puppetStatus="bad"
-elif [ "`sudo tail -n 5 /var/log/puppet/puppet.log | grep -i "ould not retrieve catal"`" ]
+elif [ "`/usr/bin/sudo tail -n 5 /var/log/puppet/puppet.log | grep -i "ould not retrieve catal"`" ]
 then
 	puppetStatus="bad"
-elif [ "`sudo tail -n 5 /var/log/puppet/puppet.log | grep -i "failed"`" ]
+elif [ "`/usr/bin/sudo tail -n 5 /var/log/puppet/puppet.log | grep -i "failed"`" ]
 then
 	puppetStatus="bad"
-elif [ "`sudo tail -n 5 /var/log/puppet/puppet.log | grep -i "skip"`" ]
+elif [ "`/usr/bin/sudo tail -n 5 /var/log/puppet/puppet.log | grep -i "skip"`" ]
 then	
 	puppetStatus="bad"
 fi
