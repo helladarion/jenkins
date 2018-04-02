@@ -1,9 +1,11 @@
 pipeline {
     agent {
       label 'nucapollo'
-      checkout scm
     }
     stages {
+        stage('Checkout') {
+            checkout scm
+        }
         stage('No-op') {
             steps {
                 sh 'ls'
