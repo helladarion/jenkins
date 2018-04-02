@@ -8,6 +8,8 @@ pipeline {
       steps {
         checkout scm
         // sh '$WORKSPACE/jenkins/scripts/check_puppet.sh'
+        echo 'Checking puppet Status'
+        sh './jenkins/scripts/check_puppet.sh'
         sh 'ls /Jenkins/*/*/*/*'
       }
     }
