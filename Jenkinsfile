@@ -1,38 +1,49 @@
 pipeline {
-  agent none
-  stages {
-    stage('puppet') {
-      agent {
-        label 'nucapollo'
-      }
-      steps {
-        // checkout scm
-        // sh '$WORKSPACE/jenkins/scripts/check_puppet.sh'
-        echo 'Checking puppet Status'
-        sh './jenkins/scripts/check_puppet.sh'
-        // sh 'ls /Jenkins/*/*/*/*'
-      }
+    agent { docker { image 'python:3.5.1' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
+        }
     }
-  }
-  post {
-      always {
-          echo 'One way or another, I have finished'
-          // deleteDir() /* clean up our workspace */
-      }
-      success {
-          echo 'I succeeeded!'
-      }
-      unstable {
-          echo 'I am unstable :/'
-      }
-      failure {
-          echo 'I failed :('
-      }
-      changed {
-          echo 'Things were different before...'
-      }
-  }
 }
+
+//pipeline {
+//  agent none
+//  stages {
+//    stage('puppet') {
+//      agent {
+//        label 'nucapollo'
+//      }
+//      steps {
+//        // checkout scm
+//        // sh '$WORKSPACE/jenkins/scripts/check_puppet.sh'
+//        echo 'Checking puppet Status'
+//        sh './jenkins/scripts/check_puppet.sh'
+//        // sh 'ls /Jenkins/*/*/*/*'
+//      }
+//    }
+//  }
+//  post {
+//      always {
+//          echo 'One way or another, I have finished'
+//          // deleteDir() /* clean up our workspace */
+//      }
+//      success {
+//          echo 'I succeeeded!'
+//      }
+//      unstable {
+//          echo 'I am unstable :/'
+//      }
+//      failure {
+//          echo 'I failed :('
+//      }
+//      changed {
+//          echo 'Things were different before...'
+//      }
+//  }
+//}
 
 
 
@@ -55,5 +66,4 @@ pipeline {
 //             }
 //         }
 //     }
-    
 // }
